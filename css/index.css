@@ -1,0 +1,17 @@
+section {
+    margin-bottom: 30px;
+}
+
+#click-area {
+    height: 250px;
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5a8;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
