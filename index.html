@@ -11,10 +11,14 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/ripple.min.css">
 
     <!-- Custom Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/513602d0b7.js" crossorigin="anonymous"></script>
 
     <!-- Google Material Icons - https://material.io/resources/icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,7 +51,7 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="card d-flex align-items-center justify-content-center" id="click-area">
-                        Click Here!
+                        <h4 class="text-muted">Click Here!</h4>
                     </div>
                 </div>
             </div>
@@ -58,7 +62,7 @@
     <section class="d-flex align-items-center" id="statistic">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 pb-2">
+                <div class="col-sm-3 pb-2">
                     <div class="card border-0 shadow">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-clicks">0</h4>
@@ -66,7 +70,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 pb-2">
+                <div class="col-sm-3 pb-2">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center">
+                            <h4 class="m-0" id="stat-dbc">0</h4>
+                            <small>Double Clicks</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 pb-2">
                     <div class="card border-0 shadow">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-cps">0</h4>
@@ -74,11 +86,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 pb-2">
+                <div class="col-sm-3 pb-2">
                     <div class="card border-0 shadow">
                         <div class="card-body text-center">
-                            <h4 class="m-0" id="stat-dbc">0</h4>
-                            <small>Double Clicks</small>
+                            <h4 class="m-0" id="stat-time">0</h4>
+                            <small>Time Elapsed</small>
                         </div>
                     </div>
                 </div>
@@ -89,31 +101,23 @@
     <!-- Statistic Content -->
     <section class="d-flex align-items-center" id="statistic">
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card border-0 shadow">
-                        <div class="card-body text-center">
-                            <!-- <div class="result-item">
-                                <div class="row">
-                                    <div class="col">
-                                        #1
-                                    </div>
-                                    <div class="col">
-                                        Sun May 31 2020 21:44:35 GMT+1000 (Australian Eastern Standard Time)
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="result-item">
-                                <div class="row">
-                                    <div class="col">
-                                        #2
-                                    </div>
-                                    <div class="col">
-                                        Sun May 31 2020 21:44:35 GMT+1000 (Australian Eastern Standard Time)
-                                    </div>
-                                </div>
-                            </div> -->
+            <div class="card border-0 shadow">
+                <div class="card-body text-center">
+                    <div class="row ">
+                        <div class="col-sm-9 d-flex align-items-center justify-content-around border-right">
+                            <i class="fas fa-mouse m-0 mr-4 h3"></i>
+                            <input type="range" class="form-control-range d-inline" id="formControlRange">
+                        </div>
+                        <div class="col-sm-3 d-flex align-items-center justify-content-around">
+                            <i class="fas fa-stopwatch m-0 h3"></i>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-play mr-2"></i>
+                                Start
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fas fa-stop mr-2"></i>
+                                Stop
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -147,7 +151,28 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
 
-    <script src="js/click.js"></script>
+    <script type="text/javascript" src="js/click.js"></script>
+    <script type="text/javascript" src="js/ripple.min.js"></script>
+    <script>
+        $.ripple("#click-area", {
+            debug: false, // Turn Ripple.js logging on/off
+            on: 'mousedown', // The event to trigger a ripple effect
+
+            opacity: 0.1, // The opacity of the ripple
+            color: "auto", // Set the background color. If set to "auto", it will use the text color
+            multi: true, // Allow multiple ripples per element
+
+            duration: 0.7, // The duration of the ripple
+
+            // Filter function for modifying the speed of the ripple
+            rate: function (pxPerSecond) {
+                return pxPerSecond;
+            },
+
+            easing: 'linear' // The CSS3 easing function of the ripple
+        });
+
+    </script>
 
 </body>
 

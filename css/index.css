@@ -7,6 +7,10 @@ section {
     cursor: pointer;
 }
 
+.vertical-divider {
+    border-right: 1px dashed #333;
+}
+
 .footer {
     width: 100%;
     background-color: #f5f5f5a8;
