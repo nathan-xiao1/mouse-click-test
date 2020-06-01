@@ -4,6 +4,9 @@ var statCPS = document.getElementById("stat-cps");
 var statDBC = document.getElementById("stat-dbc");
 var statTime = document.getElementById("stat-time");
 
+var thresholdControl = document.getElementById("threshold-control");
+var thresholdDisplay = document.getElementById("threshold-display");
+
 var clicks = 0;
 var dClicks = 0;
 
@@ -15,7 +18,8 @@ var time = 0;
 // Default 500ms for double clicks
 var dClickThreshold = 500;
 
-clickArea.addEventListener("click", (ev) => {
+// Event Listener for click area
+clickArea.addEventListener("click", () => {
     if (timer == undefined) {
         timer = startTimer();
     }
@@ -29,6 +33,15 @@ clickArea.addEventListener("click", (ev) => {
     }
     updateStat();
 })
+
+// Initialise threshold value
+thresholdDisplay.innerText = thresholdControl.value;
+// Event Listener for threshold range control
+thresholdControl.addEventListener("input", () => {
+    dClickThreshold = thresholdControl.value;
+    thresholdDisplay.innerText = thresholdControl.value;
+})
+
 
 function tick() {
     time++;

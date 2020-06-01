@@ -103,14 +103,15 @@
         <div class="container">
             <div class="card border-0 shadow">
                 <div class="card-body text-center">
-                    <div class="row ">
-                        <div class="col-sm-9 d-flex align-items-center justify-content-around border-right">
+                    <div class="row">
+                        <div class="col-md d-flex flex-row align-items-center border-right mb-4 mb-md-0">
                             <i class="fas fa-mouse m-0 mr-4 h3"></i>
-                            <input type="range" class="form-control-range d-inline" id="formControlRange">
+                            <input type="range" class="form-control-range" id="threshold-control" min="10" max="1000" value="500" step="10">
+                            <small class="ml-2" for="threshold-control"><span id="threshold-display">500</span>ms</small>
                         </div>
-                        <div class="col-sm-3 d-flex align-items-center justify-content-around">
-                            <i class="fas fa-stopwatch m-0 h3"></i>
-                            <button type="button" class="btn btn-primary">
+                        <div class="col-md-auto d-flex flex-row align-items-center">
+                            <i class="fas fa-stopwatch m-0 mr-4 h3"></i>
+                            <button type="button" class="btn btn-primary mr-2">
                                 <i class="fas fa-play mr-2"></i>
                                 Start
                             </button>
