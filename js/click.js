@@ -11,6 +11,7 @@ var timerStartBtn = document.getElementById("timer-start-btn");
 var timerStopBtn = document.getElementById("timer-stop-btn");
 
 var clicks = 0;
+var clicksTimer = 0;
 var dClicks = 0;
 
 var lastClick = 0;
@@ -28,6 +29,7 @@ clickArea.addEventListener("click", () => {
         timer = startTimer();
     }
     clicks++;
+    clicksTimer++;
     currentClick = Date.now();
     if (currentClick - lastClick <= dClickThreshold) {
         dClicks++;
@@ -63,7 +65,7 @@ function tick() {
 
 function updateStat() {
     statClick.innerText = clicks;
-    statCPS.innerText = Math.round((clicks / (time == 0 ? 1 : time)) * 100) / 100;
+    statCPS.innerText = Math.round((clicksTimer / (time == 0 ? 1 : time)) * 100) / 100;
     statDBC.innerText = dClicks;
     statTime.innerText = time + "s";
 }
@@ -75,5 +77,7 @@ function startTimer() {
 function stopTimer(timer) {
     clearInterval(timer);
     time = 0;
+    clicksTimer = 0;
+    statCPS.innerText = clicksTimer;
     statTime.innerText = time + "s";
 } 

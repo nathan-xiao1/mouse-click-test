@@ -3,8 +3,37 @@ section {
 }
 
 #click-area {
-    height: 250px;
+    height: 300px;
     cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.bg-primary-dark {
+    background-color: #1976d2;
+}
+
+.bg-primary-light {
+    background-color: #2196f3;
+}
+
+.bg-danger {
+    background-color: #e91e63 !important;
+}
+
+.bg-jumbotron {
+    background-color: #fafafa;
+}
+
+.icon {
+    color: #9e9e9e;
+}
+
+.card-stat {
+    color: white;
 }
 
 .vertical-divider {

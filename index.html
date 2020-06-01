@@ -29,7 +29,7 @@
 <body id="main-body" data-spy="scroll" data-target="#navbarSupportedContent" data-offset="400">
 
     <!-- Image and Text Navbar -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-primary-dark">
         <div class="container">
             <span class="navbar-brand" href="">Mouse Click Test</span>
         </div>
@@ -37,8 +37,8 @@
 
     <!-- Intro Content -->
     <section id="intro">
-        <div class="jumbotron jumbotron-fluid bg-light m-0">
-            <div class="container">
+        <div class="jumbotron jumbotron-fluid bg-jumbotron m-0">
+            <div class="container" style="color: #444444">
                 <h1 class="display-4">Mouse Click Test</h1>
                 <p class="lead">Mouse clicking issues? Check if your mouse clicks are being registered.</p>
             </div>
@@ -51,7 +51,7 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="card d-flex align-items-center justify-content-center" id="click-area">
-                        <h4 class="text-muted">Click Here!</h4>
+                        <h4 class="text-muted m-0">Click Here!</h4>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 pb-2">
-                    <div class="card border-0 shadow">
+                    <div class="card card-stat border-0 shadow bg-primary-light">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-clicks">0</h4>
                             <small>Clicks</small>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 pb-2">
-                    <div class="card border-0 shadow">
+                    <div class="card card-stat border-0 shadow bg-primary-light">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-dbc">0</h4>
                             <small>Double Clicks</small>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 pb-2">
-                    <div class="card border-0 shadow">
+                    <div class="card card-stat border-0 shadow bg-primary-light">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-cps">0</h4>
                             <small>Clicks/Sec</small>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 pb-2">
-                    <div class="card border-0 shadow">
+                    <div class="card card-stat border-0 shadow bg-primary-light">
                         <div class="card-body text-center">
                             <h4 class="m-0" id="stat-time">0s</h4>
                             <small>Time Elapsed</small>
@@ -98,26 +98,28 @@
         </div>
     </section>
 
-    <!-- Statistic Content -->
-    <section class="d-flex align-items-center" id="statistic">
+    <!-- Control Section -->
+    <section class="d-flex align-items-center" id="control">
         <div class="container">
             <div class="card border-0 shadow">
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col-md d-flex flex-row align-items-center border-right mb-4 mb-md-0">
-                            <i class="fas fa-mouse m-0 mr-4 h3"></i>
-                            <input type="range" class="form-control-range" id="threshold-control" min="10" max="1000" value="500" step="10">
-                            <small class="ml-2" for="threshold-control"><span id="threshold-display">500</span>ms</small>
+                            <i class="fas fa-mouse icon m-0 mr-4 h3" data-toggle="tooltip" data-placement="top" title="Maximum Double Click Delay"></i>
+                            <input type="range" class="form-control-range primary" id="threshold-control" min="10"
+                                max="1000" value="500" step="10">
+                            <small class="ml-2" for="threshold-control"><span
+                                    id="threshold-display">500</span>ms</small>
                         </div>
                         <div class="col-md-auto d-flex flex-row align-items-center">
-                            <i class="fas fa-stopwatch m-0 mr-4 h3"></i>
+                            <i class="fas fa-stopwatch icon m-0 mr-4 h3" data-toggle="tooltip" data-placement="top" title="Timer Control"></i>
                             <button type="button" class="btn btn-primary mr-2" id="timer-start-btn">
                                 <i class="fas fa-play mr-2"></i>
                                 Start
                             </button>
-                            <button type="button" class="btn btn-danger" id="timer-stop-btn">
+                            <button type="button" class="btn btn-danger bg-danger" id="timer-stop-btn">
                                 <i class="fas fa-stop mr-2"></i>
-                                Stop
+                                Reset
                             </button>
                         </div>
                     </div>
@@ -128,17 +130,11 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container align-items-center text-center py-3">
-            <div class="row">
-                <div class="col d-flex justify-content-center mb-2">
-                    <a class="icon icon-link text-secondary fab fa-linkedin-in mr-3"
-                        href="https://www.linkedin.com/in/nathan-xiao"></a>
-                    <a class="icon icon-link text-secondary fab fa-github" href="https://github.com/nathan-xiao1"></a>
-                </div>
-            </div>
+        <div class="container d-flex align-items-center justify-content-center">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <small class="secondary-text m-0">Made with Bootstrap</small>
+                    <a class="icon-link text-secondary fab fa-github my-3" style="text-decoration: none; font-size: 28px;"
+                        href="https://github.com/nathan-xiao1/mouse-click-test"></a>
                 </div>
             </div>
         </div>
@@ -155,12 +151,15 @@
     <script type="text/javascript" src="js/click.js"></script>
     <script type="text/javascript" src="js/ripple.min.js"></script>
     <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
         $.ripple("#click-area", {
             debug: false, // Turn Ripple.js logging on/off
             on: 'mousedown', // The event to trigger a ripple effect
 
             opacity: 0.1, // The opacity of the ripple
-            color: "auto", // Set the background color. If set to "auto", it will use the text color
+            color: "#1976d2", // Set the background color. If set to "auto", it will use the text color
             multi: true, // Allow multiple ripples per element
 
             duration: 0.7, // The duration of the ripple
