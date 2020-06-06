@@ -104,22 +104,41 @@
             <div class="card border-0 shadow">
                 <div class="card-body text-center">
                     <div class="row">
-                        <div class="col-md d-flex flex-row align-items-center border-right mb-4 mb-md-0">
-                            <i class="fas fa-mouse icon m-0 mr-4 h3" data-toggle="tooltip" data-placement="top" title="Maximum Double Click Delay"></i>
+                        <div class="col-md d-flex flex-row align-items-center border-right">
+                            <i class="fas fa-mouse icon m-0 mr-4 h3" data-toggle="tooltip" data-placement="top"
+                                title="Click Settings"></i>
                             <input type="range" class="form-control-range primary" id="threshold-control" min="10"
-                                max="1000" value="500" step="10">
+                                max="1000" value="100" step="10" data-toggle="tooltip" data-placement="top"
+                                title="Maximum Double Click Delay (Default: 100ms)">
                             <small class="ml-2" for="threshold-control"><span
-                                    id="threshold-display">500</span>ms</small>
+                                    id="threshold-display">100</span>ms</small>
                         </div>
-                        <div class="col-md-auto d-flex flex-row align-items-center">
-                            <i class="fas fa-stopwatch icon m-0 mr-4 h3" data-toggle="tooltip" data-placement="top" title="Timer Control"></i>
-                            <button type="button" class="btn btn-primary mr-2" id="timer-start-btn">
+                        <div class="col-sm-auto d-flex flex-row align-items-center border-right mt-4 mt-md-0">
+                            <input type="checkbox" class="mr-2" id="consecutive-checkbox" />
+                            <small data-toggle="tooltip" data-placement="top"
+                                title="Allow the second click of a double click to be counted as the first click of another double click">
+                                Consecutive Double Click
+                            </small>
+                        </div>
+                        <div class="col-sm-auto d-flex flex-row align-items-center border-right mt-4 mt-md-0">
+                            <i class="fas fa-stopwatch icon m-0 mr-3 h3" data-toggle="tooltip" data-placement="top"
+                                title="Timer Control"></i>
+                            <button type="button" class="btn btn-primary mr-2 btn-sm" id="timer-start-btn"
+                                data-toggle="tooltip" data-placement="top" title="Start Timer">
                                 <i class="fas fa-play mr-2"></i>
                                 Start
                             </button>
-                            <button type="button" class="btn btn-danger bg-danger" id="timer-stop-btn">
-                                <i class="fas fa-stop mr-2"></i>
+                            <button type="button" class="btn btn-danger bg-danger btn-sm" id="timer-reset-btn"
+                                data-toggle="tooltip" data-placement="top" title="Reset Timer">
+                                <i class="fas fa-undo mr-2"></i>
                                 Reset
+                            </button>
+                        </div>
+                        <div class="col-sm-auto d-flex flex-row align-items-center mt-4 mt-lg-0">
+                            <button type="button" class="btn btn-danger bg-danger btn-sm" id="click-reset-btn"
+                                data-toggle="tooltip" data-placement="top" title="Reset Click Count">
+                                <i class="fas fa-undo mr-2"></i>
+                                Reset Clicks
                             </button>
                         </div>
                     </div>
@@ -133,7 +152,8 @@
         <div class="container d-flex align-items-center justify-content-center">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <a class="icon-link text-secondary fab fa-github my-3" style="text-decoration: none; font-size: 28px;"
+                    <a class="icon-link text-secondary fab fa-github my-3"
+                        style="text-decoration: none; font-size: 28px;"
                         href="https://github.com/nathan-xiao1/mouse-click-test"></a>
                 </div>
             </div>
